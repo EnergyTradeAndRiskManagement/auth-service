@@ -1,7 +1,9 @@
 package com.trading.authservice.controllers;
 
+import com.trading.authservice.dtos.CreateRoleRequest;
 import com.trading.authservice.services.RoleService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +18,8 @@ public class RoleController {
     }
 
     @PostMapping("/createrole")
-    public void createRole(){
-        roleService.createRole();
+    public void createRole(@RequestBody CreateRoleRequest createRole){
+
+        roleService.createRole(createRole.getRole());
     }
 }

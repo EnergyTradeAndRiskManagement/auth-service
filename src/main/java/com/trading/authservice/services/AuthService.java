@@ -37,11 +37,12 @@ public class AuthService {
     }
 
     public void register(RegisterRequest request){
-        if (userRepository.existsByUsername(
-                request.getUsername())) {
+
+        if (userRepository.existsByEmail(
+                request.getEmail())) {
 
             throw new RuntimeException(
-                    "Username already exists");
+                    "User already exists");
         }
 
 
@@ -62,7 +63,7 @@ public class AuthService {
 
         user.setRoles(roles);
 
-        user.setRoles(roles);
+
 
         userRepository.save(user);
     }

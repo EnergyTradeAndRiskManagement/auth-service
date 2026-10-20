@@ -14,9 +14,9 @@ public class RoleService {
     }
 
 
-    public void createRole(){
+    public void createRole(String role){
         Role newRole = new Role();
-        newRole.setName("ADMIN");
+        newRole.setName(role);
 
         roleRepository.save(newRole);
     }
